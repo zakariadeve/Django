@@ -17,10 +17,10 @@ python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 ```
 
-2) تثبيت Django (الإصدار المستخدم في المشروع: `6.0.3`):
+2) تثبيت المتطلبات (Django `6.0.3` موجود في `requirements.txt`):
 
 ```powershell
-pip install django==6.0.3
+pip install -r requirements.txt
 ```
 
 3) تشغيل الترحيلات (migrations) ثم تشغيل السيرفر:

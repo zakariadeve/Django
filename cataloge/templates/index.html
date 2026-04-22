@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block content %}
+<h1>Bienvenue dans la Médiathèque CineMagic</h1>
+<p>Voici les films disponibles :</p>
+<ul>
+    {% for film in top_films %}
+        <li><a href="{% url 'film_detail' titre=film.titre %}">{{ film.titre }}</a></li>
+    {% endfor %}
+</ul>
+<p><a href="{% url 'stats' %}">Voir les statistiques</a></p>
+{% endblock %}

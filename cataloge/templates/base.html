@@ -1,0 +1,29 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Mon Site{% endblock %}</title>
+    <!-- Bonus: إضافة CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav>
+        <a href="{% url 'index' %}">Accueil</a>
+        <a href="{% url 'infos' %}">Infos</a>
+    </nav>
+
+    <!-- Bloc de contenu -->
+    <div>
+        {% block content %}
+        <!-- هنا سيتم وضع محتوى الصفحات الأخرى -->
+        {% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Ahmed Zakaria</p>
+    </footer>
+</body>
+</html>

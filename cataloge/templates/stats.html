@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Statistiques{% endblock %}
+
+{% block content %}
+<h1>Statistiques des Films</h1>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Titre</th>
+            <th>Année</th>
+            <th>Note</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for film in films_data %}
+        <tr {% if film.note > 4 %}style="background-color: lightgreen;"{% endif %}>
+            <td>{{ film.titre }}</td>
+            <td>{{ film.annee }}</td>
+            <td>{{ film.note }}{% if film.note > 4 %} ⭐{% endif %}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

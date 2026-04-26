@@ -1,6 +1,9 @@
 
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .forms import ContactForm
+from .forms import FilmForm
+from django.contrib.admin.views.decorators import staff_member_required
 
 films_data = [
         {
@@ -52,7 +55,29 @@ def stats(request):
     return render(request, 'stats.html', {
         'films_data': films_data
     })
+def contact(request):
+    form = ContactForm()
 
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            return render(request, 'contact.html', {
+                'form': ContactForm(),
+                'success': True
+            })
+
+    return render(request, 'contact.html', {'form': form})
+@staff_member_required
+def ajouter_film(request):
+    if request.method == 'POST':
+        form = FilmForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = FilmForm()
+
+    return render(request, 'ajouter_film.html', {'form': form})
 
 
 

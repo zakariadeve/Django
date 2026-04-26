@@ -10,7 +10,7 @@ class Film(models.Model):
     est_disponible = models.BooleanField(default=True)
     date_sortie = models.DateField(null=True, blank=True)
     code_reference = models.CharField(max_length=10, unique=True, default="DEFAULT123")
-    realisateur = models.ForeignKey('Realisateur', on_delete=models.CASCADE)
+    realisateur = models.ForeignKey('Realisateur', on_delete=models.SET_NULL, null=True, blank=True)
  
 
     def __str__(self):

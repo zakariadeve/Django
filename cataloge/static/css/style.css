@@ -5,6 +5,18 @@ body {
     color: #1f2937;
 }
 
+:root {
+    --card-bg: #ffffff;
+    --card-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+    --card-border: 1px solid rgba(148, 163, 184, 0.15);
+    --muted: #475569;
+    --text-strong: #0f172a;
+    --primary: #1d4ed8;
+    --primary-soft: #dbeafe;
+    --success: #16a34a;
+    --success-soft: #dcfce7;
+}
+
 nav {
     background-color: #1f2937;
     padding: 12px 24px;
@@ -30,11 +42,19 @@ nav a:hover {
 }
 
 .film-card {
-    background: #ffffff;
+    background: var(--card-bg);
     border-radius: 18px;
-    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+    box-shadow: var(--card-shadow);
     padding: 28px;
-    border: 1px solid rgba(148, 163, 184, 0.15);
+    border: var(--card-border);
+}
+
+.contact-card {
+    background: var(--card-bg);
+    border-radius: 18px;
+    box-shadow: var(--card-shadow);
+    padding: 28px;
+    border: var(--card-border);
 }
 
 .film-header {
@@ -49,12 +69,12 @@ nav a:hover {
 .film-header h1 {
     margin: 0;
     font-size: 2.1rem;
-    color: #0f172a;
+    color: var(--text-strong);
 }
 
 .film-category {
     margin: 0 0 8px;
-    color: #475569;
+    color: var(--muted);
     text-transform: uppercase;
     letter-spacing: 0.12em;
     font-size: 0.8rem;
@@ -63,7 +83,7 @@ nav a:hover {
 .badge {
     display: inline-block;
     background: #38bdf8;
-    color: #0f172a;
+    color: var(--text-strong);
     padding: 10px 16px;
     border-radius: 9999px;
     font-size: 0.9rem;
@@ -92,7 +112,7 @@ nav a:hover {
 
 .back-link {
     display: inline-block;
-    color: #1d4ed8;
+    color: var(--primary);
     font-weight: 600;
     text-decoration: none;
     padding: 10px 16px;
@@ -102,6 +122,86 @@ nav a:hover {
 }
 
 .back-link:hover {
-    background-color: #dbeafe;
+    background-color: var(--primary-soft);
     color: #1e40af;
+}
+
+.page-title {
+    margin: 0 0 18px;
+    font-size: 2rem;
+    color: var(--text-strong);
+}
+
+.alert-success {
+    background: var(--success-soft);
+    border: 1px solid rgba(22, 163, 74, 0.25);
+    color: #14532d;
+    padding: 12px 14px;
+    border-radius: 12px;
+    margin: 0 0 16px;
+    font-weight: 600;
+}
+
+.contact-form p {
+    margin: 0 0 14px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 6px;
+    color: #334155;
+    font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(148, 163, 184, 0.6);
+    background: #ffffff;
+    color: #0f172a;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.contact-form textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+    border-color: rgba(29, 78, 216, 0.6);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+.contact-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.btn-primary {
+    appearance: none;
+    border: 0;
+    background: var(--primary);
+    color: #ffffff;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.05s ease, filter 0.15s ease;
+}
+
+.btn-primary:hover {
+    filter: brightness(1.05);
+}
+
+.btn-primary:active {
+    transform: translateY(1px);
 }

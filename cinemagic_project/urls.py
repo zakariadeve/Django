@@ -23,4 +23,7 @@ urlpatterns = [
     path('info/', views.infos, name='infos'),
     path('film/<str:titre>/', views.film_detail, name='film_detail'),
     path('stats/', views.stats, name='stats'),
+    path("admin/", admin.site.urls),
+    path('contact/', views.contact, name='contact'),
+    path('ajouter-film/', views.ajouter_film, name='ajouter_film'),
 ]

@@ -72,6 +72,8 @@ def ajouter_film(request):
     if request.method == 'POST':
         form = FilmForm(request.POST)
         if form.is_valid():
+            form.clean_annee_sortie()
+            
             form.save()
             return redirect('index')
     else:
